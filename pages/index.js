@@ -20,9 +20,7 @@ export default function Home({ reviews }) {
 
 export async function getStaticProps() {
   // const reviewsRes = await fetchAPI("/api/reviews", { populate: ["image", "place"] });
-  const reviewsRes = await axios.get(
-    "https://strapi-production-124a.up.railway.app/api/reviews"
-  );
+  const reviewsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews`);
 
   return {
     props: { reviews: reviewsRes.data.data },

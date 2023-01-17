@@ -8,6 +8,8 @@ import Map from "../../components/Map";
 import BigMap from "../../components/BigMap";
 
 const Places = ({ places, list }) => {
+  console.log(places)
+
   const [menuToggle, setMenuToggle] = useState("list");
   const [sorted, setSorted] = useState([places]);
 
@@ -67,11 +69,14 @@ const Places = ({ places, list }) => {
 export default Places;
 
 export async function getStaticProps() {
-  const placesRes = await fetchAPI("/places", { populate: ["image"] });
-  const list = await fetchAPI("/articles", { populate: "*" });
+  // const placesRes = await fetchAPI("/places", { populate: ["image"] });
+  // const list = await fetchAPI("/articles", { populate: "*" });
+
+  const placesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places`)
+  const list = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews`)
+
 
   return {
-    // props: { reviews: postRes.data.data },
-    props: { places: placesRes.data, list: list.data },
+        props: { places: placesRes.data.data, list: list.data.data },
   };
 }
