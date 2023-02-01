@@ -13,7 +13,7 @@ const Review = ({ review }) => {
       } `}
     >
       <div id="card-top" className="flex justify-evenly">
-        {/* {review.attributes.image.data != null ? (
+        {review.attributes.image.data != null ? (
           <div className="w-1/3 h-1/3">
             <Image
               layout="responsive"
@@ -23,7 +23,7 @@ const Review = ({ review }) => {
               alt="image"
             />
           </div>
-        ) : null} */}
+        ) : null}
         <div id="card-top-right" className="flex flex-col justify-center items-center">
           <h2 className="text-4xl text-green-900">{review.attributes.name}</h2>
           <h3>
