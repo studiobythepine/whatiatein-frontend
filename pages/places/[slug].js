@@ -20,11 +20,11 @@ const Place = ({ list, place }) => {
             width={200}
             height={100}
             layout="responsive"
-            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${place.data[0].attributes.image.data.attributes.url}`}
+            // src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${place.data[0].attributes.image.data.attributes.url}`}
           ></Image>
           <h1 className="text-4xl text-slate-800">
-            {place.data[0].attributes.city}, {place.data[0].attributes.country}
-          </h1>
+            {place[0].attributes.city}, {place[0].attributes.country}
+  </h1>
         </div>
         <div id="top-right" className="w-full h-64 md:h-full md:w-2/3 ">
           <Map place={place} list={list} />
@@ -34,6 +34,7 @@ const Place = ({ list, place }) => {
         return `/places/${article.attributes.place.data.attributes.slug}` === router.asPath ? (
           <Review key={article.id} review={article} />
         ) : null;
+
       })}
     </div>
   );
@@ -43,20 +44,27 @@ export default Place;
 
 export async function getStaticProps(context) {
   const id = context.params.slug;
-  const list = await fetchAPI("/articles", { populate: "*" });
-  // const place = await fetchAPI("/places", { populate: "*" });
+
   const place = await axios.get(
     `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places?filters[slug]=${id}&populate=image`
   );
 
+  const list = await axios.get(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews?populate=*`
+  );
+
   return {
-    props: { list: list.data, place: place.data },
+    props: { list: list.data.data, place: place.data.data },
   };
 }
 
 export const getStaticPaths = async () => {
-  const place = await fetchAPI("/places", { populate: "*" });
-  const paths = place.data.map((item) => {
+  const place = await axios.get(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places?populate=*`
+  );
+
+  
+  const paths = place.data.data.map((item) => {
     return {
       params: { slug: item.attributes.slug },
     };

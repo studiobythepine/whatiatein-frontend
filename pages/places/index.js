@@ -8,8 +8,6 @@ import Map from "../../components/Map";
 import BigMap from "../../components/BigMap";
 
 const Places = ({ places, list }) => {
-  console.log(places)
-
   const [menuToggle, setMenuToggle] = useState("list");
   const [sorted, setSorted] = useState([places]);
 
@@ -47,9 +45,9 @@ const Places = ({ places, list }) => {
               <Link href={`/places/${place.attributes.slug}`} key={place.id}>
                 <a
                   className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100"
-                  style={{
-                    backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${place.attributes.image.data.attributes.url})`,
-                  }}
+                  // style={{
+                  //   backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${place.attributes.image.data.attributes.url})`,
+                  // }}
                 >
                   {place.attributes.city}, {place.attributes.country}
                 </a>
@@ -69,8 +67,6 @@ const Places = ({ places, list }) => {
 export default Places;
 
 export async function getStaticProps() {
-  // const placesRes = await fetchAPI("/places", { populate: ["image"] });
-  // const list = await fetchAPI("/articles", { populate: "*" });
 
   const placesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places`)
   const list = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews`)

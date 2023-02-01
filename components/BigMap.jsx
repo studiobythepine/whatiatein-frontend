@@ -386,7 +386,7 @@ const BigMap = ({ center, zoom, list, place }) => {
   const [coords, setCoords] = useState([]);
 
   const requestArr = list.map((item) => {
-    const keyword = item.attributes.search;
+    const keyword = item.attributes.keyword;
     return {
       query: keyword,
       fields: ["name", "geometry", "place_id"],

@@ -387,11 +387,13 @@ const Map = ({ center, zoom, list, place }) => {
   const [coords, setCoords] = useState([]);
 
   const sortedList = list.filter(
-    (item) => item.attributes.place.data.attributes.city === place.data[0].attributes.city
+    (item) => item.attributes.place.data.attributes.city === place[0].attributes.city
   );
 
+  console.log(sortedList)
+
   const requestArr = sortedList.map((item) => {
-    const keyword = item.attributes.search;
+    const keyword = item.attributes.keyword;
     return {
       query: keyword,
       fields: ["name", "geometry", "place_id"],
