@@ -19,7 +19,7 @@ const Review = ({ review }) => {
               layout="responsive"
               width={1}
               height={1}
-              src={`${review.attributes.image.data.attributes.formats.medium.url}`}
+              src={review.attributes.image.data.attributes.formats.medium.url}
               alt="image"
             />
           </div>
