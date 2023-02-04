@@ -3,7 +3,6 @@ import Image from "next/image";
 
 const Review = ({ review }) => {
 
-  console.log(review.attributes.image.data.attributes.formats.medium.url)
   console.log(review.attributes.image.data.attributes)
   return (
     <div
@@ -15,13 +14,13 @@ const Review = ({ review }) => {
       <div id="card-top" className="flex justify-evenly">
         {review.attributes.image.data != null ? (
           <div className="w-1/3 h-1/3">
-            <Image
+            {/* <Image
               layout="responsive"
               width={1}
               height={1}
               src={review.attributes.image.data.attributes.formats.medium.url}
               alt="image"
-            />
+            /> */}
           </div>
         ) : null}
         <div id="card-top-right" className="flex flex-col justify-center items-center">
