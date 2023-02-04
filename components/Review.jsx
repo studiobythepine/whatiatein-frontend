@@ -3,6 +3,7 @@ import Image from "next/image";
 
 const Review = ({ review }) => {
 
+  // console.log(review.attributes.image)
 
   return (
     <div
@@ -18,7 +19,7 @@ const Review = ({ review }) => {
               layout="responsive"
               width={1}
               height={1}
-              src={`${review.attributes.image.data.attributes.url}`}
+              src={`${review.attributes.image.data.attributes.formats.medium.url}`}
               alt="image"
             />
           </div>
