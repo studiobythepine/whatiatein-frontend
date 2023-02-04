@@ -20,7 +20,7 @@ const Place = ({ list, place }) => {
             width={200}
             height={100}
             layout="responsive"
-            // src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${place.data[0].attributes.image.data.attributes.url}`}
+            src={place[0].attributes.image.data[0].attributes.formats.small.url}
           ></Image>
           <h1 className="text-4xl text-slate-800">
             {place[0].attributes.city}, {place[0].attributes.country}

@@ -11,6 +11,8 @@ const Places = ({ places, list }) => {
   const [menuToggle, setMenuToggle] = useState("list");
   const [sorted, setSorted] = useState([places]);
 
+  console.log(places[0].attributes.image.data[0].attributes.url) 
+
   return (
     <div className="absolute top-28 flex flex-col w-full md:flex-row md:flex-wrap md:w-3/4 md:top-0 md:left-1/4 md:h-full">
       <div
@@ -45,9 +47,9 @@ const Places = ({ places, list }) => {
               <Link href={`/places/${place.attributes.slug}`} key={place.id}>
                 <a
                   className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100"
-                  // style={{
-                  //   backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${place.attributes.image.data.attributes.url})`,
-                  // }}
+                  style={{
+                    backgroundImage: `url(${place.attributes.image.data[0].attributes.formats.small.url})`,
+                  }}
                 >
                   {place.attributes.city}, {place.attributes.country}
                 </a>
@@ -68,7 +70,7 @@ export default Places;
 
 export async function getStaticProps() {
 
-  const placesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places`)
+  const placesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places?populate=image`)
   const list = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews`)
 
 

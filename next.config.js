@@ -4,10 +4,17 @@ const nextConfig = {
   swcMinify: true,
 };
 
+// module.exports = {
+//   reactStrictMode: true,
+//   images: {
+//     loader: "default",
+//     domains: ["127.0.0.1", "res.cloudinary.com"],
+//   },
+// };
+
+
 module.exports = {
-  reactStrictMode: false,
   images: {
-    loader: "default",
-    domains: ["127.0.0.1","res.cloudinary.com"],
+    domains: ["res.cloudinary.com"],
   },
-};
+}

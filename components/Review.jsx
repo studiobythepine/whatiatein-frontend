@@ -3,7 +3,8 @@ import Image from "next/image";
 
 const Review = ({ review }) => {
 
-  console.log(review.attributes.image.data.attributes)
+  console.log(review.attributes)
+
   return (
     <div
       key={review.id}
@@ -14,13 +15,13 @@ const Review = ({ review }) => {
       <div id="card-top" className="flex justify-evenly">
         {review.attributes.image.data != null ? (
           <div className="w-1/3 h-1/3">
-            {/* <Image
+            <Image
               layout="responsive"
               width={1}
               height={1}
-              src={review.attributes.image.data.attributes.formats.medium.url}
+              src={review.attributes.image.data[0].attributes.formats.medium.url}
               alt="image"
-            /> */}
+            />
           </div>
         ) : null}
         <div id="card-top-right" className="flex flex-col justify-center items-center">
@@ -31,7 +32,7 @@ const Review = ({ review }) => {
         </div>
       </div>
 
-      <p className="">{review.attributes.description}</p>
+      <p className="">{review.attributes.content}</p>
       <br />
       <div id="scores" className="grid grid-cols-2">
         <h3>Taste: {review.attributes.taste}</h3>
