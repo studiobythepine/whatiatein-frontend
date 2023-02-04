@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const Review = ({ review }) => {
 
-  // console.log(review.attributes.image)
-
+  console.log(review.attributes.image.data.attributes.formats.medium.url)
+  console.log(review.attributes.image.data.attributes)
   return (
     <div
       key={review.id}
