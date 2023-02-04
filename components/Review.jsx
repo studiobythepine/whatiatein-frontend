@@ -3,12 +3,11 @@ import Image from "next/image";
 
 const Review = ({ review }) => {
 
-  console.log(review.attributes.place.data.attributes.city)
 
   return (
     <div
       key={review.id}
-      className={`w-full h-2/5 md:w-1/2  md:h-1/2  border-slate-300 ${
+      className={`w-screen h-2/5 md:w-1/2  md:h-1/2  border-slate-300 ${
         review.attributes.rating ? "bg-lime-700" : "bg-red-700"
       } `}
     >
@@ -19,7 +18,7 @@ const Review = ({ review }) => {
               layout="responsive"
               width={1}
               height={1}
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${review.attributes.image.data.attributes.url}`}
+              src={`${review.attributes.image.data.attributes.url}`}
               alt="image"
             />
           </div>
