@@ -1,13 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import Ad from "./Ad";
+import Image from "next/image";
 
 const Nav = () => {
   return (
-    <nav className="z-10 fixed w-full h-28 bg-slate-200 md:w-1/4 md:h-screen">
+    <nav className="z-10 fixed w-full h-28  bg-indigo-800 md:w-1/4 md:h-screen">
       <div className="flex flex-col">
         <Link href="/">
-          <a className="text-5xl border-2 border-red-800 bg-red-500 text-center">what i ate in...</a>
+          <a className="text-5xl bg-indigo-200 text-center">what i ate in...</a>
         </Link>
         <ul className="flex flex-row justify-evenly md:items-center md:flex-col md:gap-20 md:py-20 ">
           <li>

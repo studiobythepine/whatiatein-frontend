@@ -1,43 +1,41 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Review = ({ review }) => {
+  console.log(review.attributes);
 
-  console.log(review.attributes)
+  var total_score =
+    review.attributes.taste + review.attributes.value + review.attributes.vibes + review.attributes.bathroom;
 
   return (
     <div
       key={review.id}
-      className={`w-screen h-2/5 md:w-1/2  md:h-1/2  border-slate-300 ${
-        review.attributes.rating ? "bg-lime-700" : "bg-red-700"
-      } `}
+      style={{
+        backgroundImage: `url(${review.attributes.image.data[0].attributes.formats.medium.url})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+      className={`w-screen h-2/5 md:w-1/2  md:h-1/2 p-3 ring-4 ring-white ring-inset font-semibold text-slate-50 filter brightness-90 contrast-75 hover:brightness-100 hover:contrast-100`}
     >
-      <div id="card-top" className="flex justify-evenly">
-        {review.attributes.image.data != null ? (
-          <div className="w-1/3 h-1/3">
-            <Image
-              layout="responsive"
-              width={1}
-              height={1}
-              src={review.attributes.image.data[0].attributes.formats.medium.url}
-              alt="image"
-            />
-          </div>
-        ) : null}
-        <div id="card-top-right" className="flex flex-col justify-center items-center">
-          <h2 className="text-4xl text-green-900">{review.attributes.name}</h2>
-          <h3>
-            {review.attributes.place.data.attributes.city}, {review.attributes.place.data.attributes.country}
-          </h3>
-        </div>
+      <div id="card-top-right" className="flex items-center justify-evenly ">
+        <h2 className="text-4xl">{review.attributes.name}</h2>
+        <h3>
+          {review.attributes.place.data.attributes.city}, {review.attributes.place.data.attributes.country}
+        </h3>
       </div>
 
-      <p className="">{review.attributes.content}</p>
+      <p className=" text-lg">{review.attributes.content}</p>
       <br />
+      <div className="rating-bar-container">
+        <div className="rating-bar" style={{ width: `${total_score}0%` }}>
+          {total_score}/10
+        </div>
+      </div>
       <div id="scores" className="grid grid-cols-2">
         <h3>Taste: {review.attributes.taste}</h3>
         <h3>Value: {review.attributes.value}</h3>
-        <h3>Humans: {review.attributes.humans}</h3>
+        <h3>Humans: {review.attributes.vibes}</h3>
         <h3>Bathroom: {review.attributes.bathroom}</h3>
       </div>
     </div>
