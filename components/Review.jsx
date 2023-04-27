@@ -6,8 +6,15 @@ const Review = ({ review }) => {
   let total_score =
     review.attributes.taste + review.attributes.value + review.attributes.vibes + review.attributes.bathroom;
 
+  let total_possible;
+  if (review.attributes.bathroom) {
+    total_possible = 10;
+  } else {
+    total_possible = 8;
+  }
+
   return (
-    <Link href={`/${review.attributes.slug}`} key={review.id}>
+    <Link href={`/${review.attributes.slug}`} key={review.id} legacyBehavior>
       <div
         key={review.id}
         style={{
@@ -53,10 +60,10 @@ const Review = ({ review }) => {
                 width: `${total_score}0%`,
               }}
             >
-              {total_score}/10
+              {total_score}/{total_possible}
             </div>
           </div>
-          <div id="scores" className="grid grid-cols-2">
+          <div id="scores" className="grid grid-cols-2 text-center ">
             <h3>Taste: {review.attributes.taste}</h3>
             <h3>Value: {review.attributes.value}</h3>
             <h3>Vibes: {review.attributes.vibes}</h3>
