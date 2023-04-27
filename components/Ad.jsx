@@ -1,5 +1,13 @@
-const Ad = () => {
-  return <div className=" bottom-0 h-auto bg-slate-700 w-full md:h-52 ">Ad space here</div>;
+import Image from "next/image";
+
+const AdSpace = () => {
+  return (
+    <div className="ad">
+      <a href="">
+        <Image src="" alt="ad space" width={300} height={250} />
+      </a>
+    </div>
+  );
 };
 
-export default Ad;
+export default AdSpace;

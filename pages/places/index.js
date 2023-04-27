@@ -11,14 +11,9 @@ const Places = ({ places, list }) => {
   const [menuToggle, setMenuToggle] = useState("list");
   const [sorted, setSorted] = useState([places]);
 
-  console.log(places[0].attributes.image.data[0].attributes.url) 
-
   return (
     <div className="absolute top-28 flex flex-col w-full md:flex-row md:flex-wrap md:w-3/4 md:top-0 md:left-1/4 md:h-full">
-      <div
-        id="top-section"
-        className="flex flex-col items-center pb-5 justify-center align-middle w-full h-1/5"
-      >
+      <div id="top-section" className="flex flex-col items-center pb-5 justify-center align-middle w-full h-1/5">
         <div className="flex justify-evenly align-middle w-48 bg-slate-500 h-auto m-4 p-2">
           <button
             className="h-8 bg-red-400 w-16"
@@ -69,12 +64,10 @@ const Places = ({ places, list }) => {
 export default Places;
 
 export async function getStaticProps() {
-
-  const placesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places?populate=image`)
-  const list = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews`)
-
+  const placesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/places?populate=image`);
+  const list = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews`);
 
   return {
-        props: { places: placesRes.data.data, list: list.data.data },
+    props: { places: placesRes.data.data, list: list.data.data },
   };
 }

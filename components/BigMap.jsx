@@ -385,6 +385,8 @@ const BigMap = ({ center, zoom, list, place }) => {
   });
   const [coords, setCoords] = useState([]);
 
+  console.log(list);
+
   const requestArr = list.map((item) => {
     const keyword = item.attributes.keyword;
     return {
@@ -399,7 +401,7 @@ const BigMap = ({ center, zoom, list, place }) => {
     for (var i = 0; i < requestArr.length; i++) {
       service.findPlaceFromQuery(requestArr[i], (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
+          for (let i = 0; i < results.length; i++) {
             coordsTemp.push(results[i]);
           }
           setCoords(coordsTemp);
