@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import Nav from "../components/Nav";
 import { NextSeo } from "next-seo";
 import Header from "../components/Header";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
         <Nav />
         <div>
           <Component {...pageProps} />
+          <Analytics />
         </div>
       </div>
     </>

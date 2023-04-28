@@ -40,10 +40,12 @@ const Places = ({ places, list }) => {
         <div className="flex flex-col justify-center md:flex-row flex-wrap h-4/5 md:justify-evenly w-full">
           {places.map((place) => {
             return (
-              <div className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 flex justify-between">
+              <div
+                className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 flex justify-between"
+                key={place.id}
+              >
                 <Link
                   href={`/places/${place.attributes.slug}`}
-                  key={place.id}
                   className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 text-center"
                 >
                   {place.attributes.city},<br />
