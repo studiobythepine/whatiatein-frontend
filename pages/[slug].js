@@ -6,15 +6,13 @@ const Place = ({ review }) => {
   const router = useRouter();
 
   return (
-    <div className="absolute top-28 flex flex-col w-full text-cyan-900 md:flex-row md:w-3/4 md:top-0 md:left-1/4 md:h-full">
-      <div className="w-full h-full relative">
+    <div className="absolute top-28 flex flex-col w-full text-cyan-900  md:w-3/4 md:top-0 md:left-1/4 md:h-full">
+      <div className="w-auto h-1/2 relative">
         <Image
           src={review[0].attributes.image.data[0].attributes.formats.medium.url}
           alt={review[0].attributes.name}
-          // width={review[0].attributes.image.data[0].attributes.formats.medium.width}
-          // height={review[0].attributes.image.data[0].attributes.formats.medium.height}
           fill
-          className="w-full h-auto"
+          style={{ objectFit: "scale-down" }}
         ></Image>
       </div>
       <div className="flex flex-col">

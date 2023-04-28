@@ -385,8 +385,6 @@ const BigMap = ({ center, zoom, list, place }) => {
   });
   const [coords, setCoords] = useState([]);
 
-  console.log(list);
-
   const requestArr = list.map((item) => {
     const keyword = item.attributes.keyword;
     return {
@@ -420,6 +418,7 @@ const BigMap = ({ center, zoom, list, place }) => {
         onLoad={(map) => onMapLoad(map)}
       >
         {coords.map((results, i) => {
+          console.log(results);
           return <Marker key={i} position={results.geometry.location} label={results.name} />;
         })}
       </GoogleMap>

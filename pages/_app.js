@@ -6,13 +6,13 @@ import Header from "../components/Header";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-    <Header/>
-    <div className="flex flex-col md:flex-row">
-      <Nav />
-      <div>
-        <Component {...pageProps} />
+      <Header />
+      <div className="flex flex-col md:flex-row">
+        <Nav />
+        <div>
+          <Component {...pageProps} />
+        </div>
       </div>
-    </div>
     </>
   );
 }

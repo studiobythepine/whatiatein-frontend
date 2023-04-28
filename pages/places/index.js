@@ -6,6 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Map from "../../components/Map";
 import BigMap from "../../components/BigMap";
+import Image from "next/image";
 
 const Places = ({ places, list }) => {
   const [menuToggle, setMenuToggle] = useState("list");
@@ -39,16 +40,24 @@ const Places = ({ places, list }) => {
         <div className="flex flex-col justify-center md:flex-row flex-wrap h-4/5 md:justify-evenly w-full">
           {places.map((place) => {
             return (
-              <Link href={`/places/${place.attributes.slug}`} key={place.id}>
-                <a
-                  className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100"
-                  style={{
-                    backgroundImage: `url(${place.attributes.image.data[0].attributes.formats.small.url})`,
-                  }}
+              <div className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 flex justify-between">
+                <Link
+                  href={`/places/${place.attributes.slug}`}
+                  key={place.id}
+                  className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 text-center"
                 >
-                  {place.attributes.city}, {place.attributes.country}
-                </a>
-              </Link>
+                  {place.attributes.city},<br />
+                  {place.attributes.country}
+                </Link>
+                <div className="relative w-1/2 h-full">
+                  <Image
+                    src={place.attributes.image.data[0].attributes.formats.small.url}
+                    alt={place.attributes.city}
+                    fill
+                    style={{ objectFit: "scale-down" }}
+                  />
+                </div>
+              </div>
             );
           })}
         </div>

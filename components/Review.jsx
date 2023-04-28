@@ -21,10 +21,15 @@ const Review = ({ review }) => {
           backgroundImage: `url(${review.attributes.image.data[0].attributes.formats.medium.url})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
+          cursor: "pointer",
         }}
-        className={` flex flex-col justify-between w-screen h-72 md:w-1/2  md:h-1/2 p-3 ring-4 ring-white ring-inset font-semibold text-slate-50`}
+        className={` flex flex-col justify-between w-screen h-72 md:w-1/2  md:h-1/2 p-3 ring-4 ring-emerald-100 ring-inset font-semibold text-slate-50`}
       >
-        <div id="card-top" className="flex items-center justify-evenly text-4xl text-stone-50 filter contrast-125">
+        <div
+          id="card-top"
+          className="flex items-center justify-evenly text-4xl text-stone-50 filter contrast-125 opacity-90 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
+          "
+        >
           <h2 className="text-4xl">{review.attributes.name}</h2>
           <h3>
             {review.attributes.place.data.attributes.city}, {review.attributes.place.data.attributes.country}
