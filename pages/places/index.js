@@ -15,7 +15,7 @@ const Places = ({ places, list }) => {
   return (
     <div className="absolute top-28 flex flex-col w-full md:flex-row md:flex-wrap md:w-3/4 md:top-0 md:left-1/4 md:h-full">
       <div id="top-section" className="flex flex-col items-center pb-5 justify-center align-middle w-full h-1/5">
-        <div className="flex justify-evenly align-middle w-48 bg-slate-500 h-auto m-4 p-2">
+        <div className="flex justify-evenly align-middle w-48 bg-slate-900 h-auto m-4 p-2">
           <button
             className="h-8 bg-red-400 w-16"
             onClick={() => {
@@ -40,26 +40,30 @@ const Places = ({ places, list }) => {
         <div className="flex flex-col justify-center md:flex-row flex-wrap h-4/5 md:justify-evenly w-full">
           {places.map((place) => {
             return (
-              <div
-                className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 flex justify-between"
-                key={place.id}
+              // <div
+              //   className="bg-slate-900 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 flex justify-between"
+              //   key={place.id}
+              // >
+              <Link
+                href={`/places/${place.attributes.slug}`}
+                className=" flex justify-between align-middle w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-900 text-center border-4 border-emerald-100"
               >
-                <Link
-                  href={`/places/${place.attributes.slug}`}
-                  className="bg-slate-500 w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-100 text-center"
-                >
-                  {place.attributes.city},<br />
-                  {place.attributes.country}
-                </Link>
+                <div className="w-1/2 flex align-middle justify-center h-full ">
+                  <div>
+                    {place.attributes.city},<br />
+                    {place.attributes.country}
+                  </div>
+                </div>
                 <div className="relative w-1/2 h-full">
                   <Image
                     src={place.attributes.image.data[0].attributes.formats.small.url}
                     alt={place.attributes.city}
                     fill
-                    style={{ objectFit: "scale-down" }}
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
-              </div>
+              </Link>
+              // </div>
             );
           })}
         </div>

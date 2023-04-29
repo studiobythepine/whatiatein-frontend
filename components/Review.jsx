@@ -16,15 +16,14 @@ const Review = ({ review }) => {
   return (
     <Link href={`/${review.attributes.slug}`} key={review.id} legacyBehavior>
       <div
-        key={review.id}
-        style={{
-          backgroundImage: `url(${review.attributes.image.data[0].attributes.formats.medium.url})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          cursor: "pointer",
-        }}
-        className={` flex flex-col justify-between w-screen h-72 md:w-1/2  md:h-1/2 p-3 ring-4 ring-emerald-100 ring-inset font-semibold text-slate-50`}
+        className={` flex flex-col justify-between w-screen h-72 md:w-1/2  md:h-1/2 p-3 ring-4 ring-emerald-100 ring-inset font-semibold text-slate-50 relative hover:brightness-100 hover:cursor-pointer`}
       >
+        <Image
+          src={review.attributes.image.data[0].attributes.formats.medium.url}
+          alt="review picture"
+          fill
+          style={{ objectFit: "cover", zIndex: "-1", filter: "brightness(0.8)" }}
+        ></Image>
         <div
           id="card-top"
           className="flex items-center justify-evenly text-4xl text-stone-50 filter contrast-125 opacity-90 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
@@ -54,7 +53,7 @@ const Review = ({ review }) => {
                   : total_score === 6
                   ? "bg-yellow-600"
                   : total_score === 7
-                  ? "bg-yellow-500"
+                  ? "bg-lime-400"
                   : total_score === 8
                   ? "bg-lime-600"
                   : total_score === 9

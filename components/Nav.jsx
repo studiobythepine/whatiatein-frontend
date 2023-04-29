@@ -15,19 +15,19 @@ const Nav = () => {
             <Image src={logo} alt="logo" fill style={{ objectFit: "scale-down" }}></Image>
           </div>
         </Link>
-        <ul className="flex flex-col justify-evenly text-sm md:items-center md:flex-col md:gap-10 md:py-10 text-emerald-100 text-center">
+        <ul className="flex flex-col justify-evenly md:items-center md:flex-col md:gap-10 md:py-10 text-emerald-100 text-center">
           <li className="ease-in-out  hover:-translate-y-1 hover:scale-110 hover:text-emerald-200 duration-100">
-            <Link href="/" className={`font-bold text-3xl md:text-5xl transition `}>
+            <Link href="/" className={`font-bold md:text-5xl transition `}>
               Reviews
             </Link>
           </li>
           <li className="ease-in-out  hover:-translate-y-1 hover:scale-110 hover:text-emerald-200 duration-100">
-            <Link href="/places/" onClick={() => setIsOpen("places")} className="font-bold text-3xl md:text-5xl">
+            <Link href="/places/" onClick={() => setIsOpen("places")} className="font-bold  md:text-5xl">
               Places
             </Link>
           </li>
           <li className="ease-in-out  hover:-translate-y-1 hover:scale-110 hover:text-emerald-200 duration-100">
-            <Link href="/about" onClick={() => setIsOpen("about")} className="font-bold text-3xl md:text-5xl">
+            <Link href="/about" onClick={() => setIsOpen("about")} className="font-bold  md:text-5xl">
               About
             </Link>
           </li>
