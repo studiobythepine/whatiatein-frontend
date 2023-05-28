@@ -15,14 +15,14 @@ const Place = ({ review }) => {
           style={{ objectFit: "scale-down" }}
         ></Image>
       </div>
-      <div className="flex flex-col">
-        <div className="right-side">
+      <div className="flex flex-col md:w-1/2 self-center">
+        <div className="top flex justify-center">
           <h2 className="text-4xl">{review[0].attributes.name}</h2>
           <h3>
             {review[0].attributes.place.data.attributes.city}, {review[0].attributes.place.data.attributes.country}
           </h3>
         </div>
-        <div className="bottom">
+        <div className="bottom text-lg">
           <p>{review[0].attributes.content}</p>
         </div>
       </div>

@@ -12,7 +12,7 @@ const Nav = () => {
       <div className="flex h-full md:flex-col justify-between  align-middle">
         <Link href="/" className={`text-5xl w-1/2 h-20 flex justify-center align-middle md:h-80 md:w-full`}>
           <div className="relative h-full w-full mt-4">
-            <Image src={logo} alt="logo" fill style={{ objectFit: "scale-down" }}></Image>
+            <Image src={logo} alt="logo" fill style={{ objectFit: "scale-down" }} priority></Image>
           </div>
         </Link>
         <ul className="flex flex-col justify-evenly md:items-center md:flex-col md:gap-10 md:py-10 text-emerald-100 text-center">
