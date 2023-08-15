@@ -46,7 +46,7 @@ const Places = ({ places, list }) => {
               // >
               <Link
                 href={`/places/${place.attributes.slug}`}
-                className=" flex justify-between align-middle w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-900 text-center border-4 border-emerald-100"
+                className=" flex justify-between align-middle w-full h-40 md:w-2/5 md:h-1/5 text-4xl text-slate-900 text-center bg-emerald-100"
                 key={place.id}
               >
                 <div className="w-1/2 flex align-middle justify-center h-full ">

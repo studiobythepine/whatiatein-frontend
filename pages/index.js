@@ -13,7 +13,7 @@ export default function Home({ reviews }) {
 }
 
 export async function getStaticProps() {
-  const reviewsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews?populate=*`);
+  const reviewsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/reviews?sort=id:desc&populate=*`);
 
   return {
     props: { reviews: reviewsRes.data.data },
