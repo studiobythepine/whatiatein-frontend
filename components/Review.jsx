@@ -22,8 +22,8 @@ const Review = ({ review }) => {
           src={review.attributes.image.data[0].attributes.formats.medium.url}
           alt="review picture"
           fill
-          style={{ objectFit: "cover", zIndex: "-1"}}
-          className=""
+          style={{ objectFit: "cover", zIndex: "-1" }}
+          className="hover:scale-110 transition duration-500 cursor-pointer "
         ></Image>
         <div
           id="card-top"
