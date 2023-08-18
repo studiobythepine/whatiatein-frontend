@@ -16,13 +16,14 @@ const Review = ({ review }) => {
   return (
     <Link href={`/${review.attributes.slug}`} key={review.id} legacyBehavior>
       <div
-        className={` flex flex-col justify-between w-screen h-72 md:w-1/2  md:h-1/2 p-3 ring-4 ring-emerald-100 ring-inset font-semibold text-slate-50 relative hover:brightness-100 hover:cursor-pointer`}
+        className={`flex flex-col justify-between font-semibold w-screen h-72 md:w-1/2  md:h-1/2 p-3  text-slate-50 relative md:brightness-75 md:hover:brightness-100 hover:cursor-pointer`}
       >
         <Image
           src={review.attributes.image.data[0].attributes.formats.medium.url}
           alt="review picture"
           fill
-          style={{ objectFit: "cover", zIndex: "-1", filter: "brightness(0.8)" }}
+          style={{ objectFit: "cover", zIndex: "-1"}}
+          className=""
         ></Image>
         <div
           id="card-top"

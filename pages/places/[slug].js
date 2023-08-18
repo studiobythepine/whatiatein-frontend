@@ -52,6 +52,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { list: list.data.data, place: place.data.data },
+    revalidate: 60,
   };
 }
 
