@@ -14,7 +14,7 @@ const Review = ({ review }) => {
   }
 
   return (
-    <Link href={`/${review.attributes.slug}`} key={review.id} legacyBehavior>
+    <Link href={`/${review.attributes.slug}`} key={review.id} legacyBehavior className="hover:scale-110 object-cover">
       <div
         className={`flex flex-col justify-between font-semibold w-screen h-72 md:w-1/2  md:h-1/2 p-3  text-slate-50 relative md:brightness-75 md:hover:brightness-100 hover:cursor-pointer`}
       >
@@ -23,7 +23,7 @@ const Review = ({ review }) => {
           alt="review picture"
           fill
           style={{ objectFit: "cover", zIndex: "-1" }}
-          className="hover:scale-110 transition duration-500 cursor-pointer "
+          className=""
         ></Image>
         <div
           id="card-top"
