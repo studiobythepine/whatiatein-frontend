@@ -16,23 +16,7 @@ const about = () => {
 
       <div>
         <h2 className="text-2xl">rating system</h2>
-        <ul>
-          <li>The main rating is out of 10.</li>
-          <li>Taste: What i thought about how the food tasted. </li>
-          <li>Price: not the absolute price of the food but what I thought aout the value relatively</li>
-          <li>
-            People: Since most of these restaurants are in foreign countries and out of the tourist traps, language
-            barrier can be an issue for some. This rating is not just how well they understand english but how much they
-            try to communicate with you without getting frustrated.
-          </li>
-          <li>
-            Bathroom: Quoting the great Anthony Bourdain &lsquo;I won&apos;t eat in a restaurant with filthy bathrooms.
-            This isn&apos;t a hard call. They let you see the bathrooms. If the restaurant can&apos;t be bothered to
-            replace the puck in the urinal or keep the toilets and floors clean, then just imagine what their
-            refrigeration and work spaces look like.&rsquo; Tip toeing around - its a bathroom - Where di you get this
-            decor?
-          </li>
-        </ul>
+        
       </div>
     </div>
   );
